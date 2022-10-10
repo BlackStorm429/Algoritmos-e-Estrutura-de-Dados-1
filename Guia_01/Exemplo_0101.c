@@ -21,13 +21,13 @@ decorateWorld - Metodo para preparar o cenario.
 */
 void decorateWorld ( const char* fileName )
 {
-// colocar paredes no mundo
-world->set ( 4, 4, HWALL ); // horizontal
-world->set ( 4, 4, VWALL ); // vertical
-// colocar um marcador no mundo
-world->set ( 4, 4, BEEPER );
-// salvar a configuracao atual do mundo
-world->save( fileName );
+	// colocar paredes no mundo
+	world->set ( 4, 4, HWALL ); // horizontal
+	world->set ( 4, 4, VWALL ); // vertical
+	// colocar um marcador no mundo
+	world->set ( 4, 4, BEEPER );
+	// salvar a configuracao atual do mundo
+	world->save( fileName );
 } // decorateWorld ( )
 
 /**
@@ -38,22 +38,22 @@ criado a partir dessa nova descricao de modelo.
 */
 class MyRobot : public Robot
 {
-public:
-/**
-turnRight - Procedimento para virar 'a direita.
-*/
-void turnRight ( )
-{
-// testar se o robo esta' ativo
-if ( checkStatus ( ) )
-{
-// o agente que executar esse metodo
-// devera' virar tres vezes 'a esquerda
-turnLeft ( );
-turnLeft ( );
-turnLeft ( );
-} // end if
-} // end turnRight ( )
+	public:
+	/**
+	turnRight - Procedimento para virar 'a direita.
+	*/
+	void turnRight ( )
+	{
+		// testar se o robo esta' ativo
+		if ( checkStatus ( ) )
+		{
+			// o agente que executar esse metodo
+			// devera' virar tres vezes 'a esquerda
+			turnLeft ( );
+			turnLeft ( );
+			turnLeft ( );
+		} // end if
+	} // end turnRight ( )
 }; // end class MyRobot
 
 // --------------------------- acao principal
@@ -62,44 +62,44 @@ Acao principal: executar a tarefa descrita acima.
 */
 int main ( )
 {
-// definir o contexto
-// criar o ambiente e decorar com objetos
-// OBS.: executar pelo menos uma vez,
-// antes de qualquer outra coisa
-// (depois de criado, podera' ser comentado)
-world->create ( "" ); // criar o mundo
-decorateWorld ( "Guia0101.txt" );
-world->show ( );
-// preparar o ambiente para uso
-world->reset ( ); // limpar configuracoes
-world->read ( "Guia0101.txt" );// ler configuracao atual para o ambiente
-world->show ( ); // mostrar a configuracao atual
-set_Speed ( 3 ); // definir velocidade padrao
-// criar robo
-MyRobot *robot = new MyRobot( );
-// posicionar robo no ambiente (situacao inicial):
-// posicao(x=1,y=1), voltado para direita, com zero marcadores, nome escolhido )
-robot->create ( 1, 1, EAST, 0, "Karel" );
-// executar tarefa
-robot->move( ); // primeira acao: andar para frente
-robot->move( ); // outra acao : mover-se de novo
-robot->turnLeft( ); // virar 'a esquerda
-robot->move( );
-robot->move( );
-robot->turnLeft( );
-robot->move( );
-robot->move( );
-robot->turnLeft( );
-robot->move( );
-robot->move( );
-robot->turnLeft( );
-robot->turnLeft( );
-robot->turnOff ( ); // desligar-se
-// encerrar operacoes no ambiente
-world->close ( );
-// encerrar programa
-getchar ( );
-return ( 0 );
+	// definir o contexto
+	// criar o ambiente e decorar com objetos
+	// OBS.: executar pelo menos uma vez,
+	// antes de qualquer outra coisa
+	// (depois de criado, podera' ser comentado)
+	world->create ( "" ); // criar o mundo
+	decorateWorld ( "Guia0101.txt" );
+	world->show ( );
+	// preparar o ambiente para uso
+	world->reset ( ); // limpar configuracoes
+	world->read ( "Guia0101.txt" );// ler configuracao atual para o ambiente
+	world->show ( ); // mostrar a configuracao atual
+	set_Speed ( 3 ); // definir velocidade padrao
+	// criar robo
+	MyRobot *robot = new MyRobot( );
+	// posicionar robo no ambiente (situacao inicial):
+	// posicao(x=1,y=1), voltado para direita, com zero marcadores, nome escolhido )
+	robot->create ( 1, 1, EAST, 0, "Karel" );
+	// executar tarefa
+	robot->move( ); // primeira acao: andar para frente
+	robot->move( ); // outra acao : mover-se de novo
+	robot->turnLeft( ); // virar 'a esquerda
+	robot->move( );
+	robot->move( );
+	robot->turnLeft( );
+	robot->move( );
+	robot->move( );
+	robot->turnLeft( );
+	robot->move( );
+	robot->move( );
+	robot->turnLeft( );
+	robot->turnLeft( );
+	robot->turnOff ( ); // desligar-se
+	// encerrar operacoes no ambiente
+	world->close ( );
+	// encerrar programa
+	getchar ( );
+	return ( 0 );
 } // end main ( )
 
 // ------------------------------------------- testes
