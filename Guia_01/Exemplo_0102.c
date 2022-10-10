@@ -47,11 +47,11 @@ class MyRobot : public Robot
 	// testar se o robo esta' ativo
 	if ( checkStatus ( ) )
 	{
-	// o agente que executar esse metodo
-	// devera' virar tres vezes 'a esquerda
-	turnLeft ( );
-	turnLeft ( );
-	turnLeft ( );
+		// o agente que executar esse metodo
+		// devera' virar tres vezes 'a esquerda
+		turnLeft ( );
+		turnLeft ( );
+		turnLeft ( );
 	} // end if
 } // end turnRight ( )
 
